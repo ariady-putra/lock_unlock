@@ -6,8 +6,19 @@ name = "aiken-lang/stdlib"
 version = "main"
 source = "github"
 
+[[requirements]]
+name = "ariady-putra/string_util"
+version = "main"
+source = "github"
+
 [[packages]]
 name = "aiken-lang/stdlib"
+version = "main"
+requirements = []
+source = "github"
+
+[[packages]]
+name = "ariady-putra/string_util"
 version = "main"
 requirements = []
 source = "github"

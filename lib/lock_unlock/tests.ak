@@ -12,7 +12,7 @@
 use lock_unlock/struct/datum
 use lock_unlock/struct/redeemer
 use lock_unlock/unlock.{unlock}
-use lock_unlock/util.{print}
+use string_util/cbor.{print}
 
 test should_unlock() {
   //
