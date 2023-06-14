@@ -1,7 +1,18 @@
-use aiken/cbor
+//// ```
+//// ┍━ lock_unlock/tests ━━━━━━━━━━━━━━━━━━━━━━━━
+//// │ PASS [mem: ####, cpu: ######] should_unlock
+//// │ ↳ Datum: "182a"
+//// │ ↳ Redeemer: "182a"
+//// │ PASS [mem: ####, cpu: ######] should_not_unlock
+//// │ ↳ Datum: "182a"
+//// │ ↳ Redeemer: "1818"
+//// ┕━━━━━━━━━━━━━━━━━━ 2 tests | 2 passed | 0 failed
+//// ```
+
 use lock_unlock/struct/datum
 use lock_unlock/struct/redeemer
 use lock_unlock/unlock.{unlock}
+use lock_unlock/util.{print}
 
 test should_unlock() {
   //
@@ -10,8 +21,10 @@ test should_unlock() {
   let redeemer = redeemer.new(42)
   //
   // trace:
-  trace cbor.diagnostic(datum)
-  trace cbor.diagnostic(redeemer)
+  trace "Datum"
+    |> print(datum)
+  trace "Redeemer"
+    |> print(redeemer)
   //
   // assert:
   unlock(datum, redeemer, 42)
@@ -24,8 +37,10 @@ test should_not_unlock() {
   let redeemer = redeemer.new(24)
   //
   // trace:
-  trace cbor.diagnostic(datum)
-  trace cbor.diagnostic(redeemer)
+  trace "Datum"
+    |> print(datum)
+  trace "Redeemer"
+    |> print(redeemer)
   //
   // assert:
   !unlock(datum, redeemer, 42)
