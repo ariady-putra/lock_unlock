@@ -22,13 +22,11 @@ pub fn print(label, data) {
       label
         |> bytearray.to_string,
       @": ",
-      34
-        |> cbor.serialise
+      #"22"
         |> bytearray.to_string,
       data
         |> serialise_to_hex,
-      34
-        |> cbor.serialise
+      #"22"
         |> bytearray.to_string,
     ],
     @"",
