@@ -6,7 +6,7 @@ use aiken/string
 /// serialise_to_hex(42) // 182a
 /// serialise_to_hex(24) // 1818
 /// ```
-pub fn serialise_to_hex(data) {
+pub fn serialise_to_hex(data: Data) -> String {
   data
     |> cbor.serialise
     |> bytearray.to_hex
@@ -16,7 +16,7 @@ pub fn serialise_to_hex(data) {
 /// print("Datum", 42) // Datum: "182a"
 /// print("Redeemer", 24) // Redeemer: "1818"
 /// ```
-pub fn print(label, data) {
+pub fn print(label: ByteArray, data: Data) -> String {
   string.join(
     [
       label
